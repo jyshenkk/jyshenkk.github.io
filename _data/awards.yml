@@ -1,6 +1,14 @@
 # 榮譽與活動（網站會自動依日期排序）
 # kind 可填：獲獎、演講、研習、活動
 
+- date: 2026-09-01
+  kind: 獲獎
+  title: 培育優秀博士生獎學金
+  org: 國家科學及技術委員會（NSTC）
+  description: 補助期間：2026.09 – 2029.08
+  image: ""
+  link: ""
+
 - date: 2026-07-15
   kind: 獲獎
   title: Poster Award
