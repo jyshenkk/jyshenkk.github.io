@@ -213,7 +213,7 @@ main.wrap { flex: 1; padding-top: 56px; padding-bottom: 80px; }
 }
 
 /* ── Experience & Timeline ────────────── */
-.timeline li { display: grid; grid-template-columns: 130px 1fr; gap: 14px; padding: 8px 0; }
+.timeline li { display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 8px 0; }
 
 .honors li { display: grid; grid-template-columns: 78px 1fr auto; gap: 16px; padding: 18px 0; border-bottom: 1px dashed var(--line); align-items: start; }
 .honors li:last-child { border-bottom: 0; }
