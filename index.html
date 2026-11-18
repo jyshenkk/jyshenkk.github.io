@@ -1,0 +1,56 @@
+---
+layout: default
+---
+{%- assign p = site.data.profile -%}
+<section class="hero">
+  <figure class="hero-photo">
+    <img src="{{ p.photo | relative_url }}" alt="{{ p.name_zh }}的照片" width="560" height="700" data-zoom="{{ p.photo | relative_url }}" data-caption="{{ p.name_zh }} {{ p.name_en }}">
+  </figure>
+  <div class="hero-text">
+    <p class="eyebrow">{{ p.position }} · {{ p.position_en }}</p>
+    <h1 class="hero-name">{{ p.name_zh }} <span>{{ p.name_en }}</span></h1>
+    <p class="hero-aff">{{ p.affiliation }}<br><span class="en">{{ p.affiliation_en }}</span></p>
+    {% if p.bio != "" and p.bio %}<p class="hero-bio">{{ p.bio }}</p>{% endif %}
+    {% if p.advisor != "" and p.advisor %}<p class="hero-meta">指導教授：{{ p.advisor }}</p>{% endif %}
+    <ul class="links">
+      {% if p.email != "" %}<li><a href="mailto:{{ p.email }}">Email</a></li>{% endif %}
+      {% if p.lab_url != "" %}<li><a href="{{ p.lab_url }}" target="_blank" rel="noopener">實驗室網站</a></li>{% endif %}
+      {% if p.google_scholar != "" %}<li><a href="{{ p.google_scholar }}" target="_blank" rel="noopener">Google Scholar</a></li>{% endif %}
+      {% if p.orcid != "" %}<li><a href="{{ p.orcid }}">ORCID</a></li>{% endif %}
+      {% if p.researchgate != "" %}<li><a href="{{ p.researchgate }}">ResearchGate</a></li>{% endif %}
+      {% if p.linkedin != "" %}<li><a href="{{ p.linkedin }}">LinkedIn</a></li>{% endif %}
+      {% if p.cv_pdf != "" %}<li><a href="{{ p.cv_pdf | relative_url }}">CV (PDF)</a></li>{% endif %}
+    </ul>
+  </div>
+</section>
+
+<section class="block">
+  <h2 class="section-title">研究領域</h2>
+  <ul class="interests">
+    {% for it in p.interests %}<li>{{ it }}</li>{% endfor %}
+  </ul>
+</section>
+
+<section class="block">
+  <h2 class="section-title">近況</h2>
+  {%- assign news = site.data.news | sort: "date" | reverse %}
+  <ul class="news">
+    {%- for n in news limit: 6 %}
+    <li>
+      <time datetime="{{ n.date | date: '%Y-%m-%d' }}">{{ n.date | date: "%Y.%m" }}</time>
+      <p>{{ n.text }}{% if n.link != "" and n.link %} <a class="more" href="{{ n.link | relative_url }}">→</a>{% endif %}</p>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="block">
+  <div class="section-head">
+    <h2 class="section-title">代表著作</h2>
+    <a class="see-all" href="{{ '/publications/' | relative_url }}">全部著作 →</a>
+  </div>
+  {%- assign pubs = site.data.publications | where: "featured", true %}
+  {%- for pub in pubs %}
+    {% include publication.html pub=pub %}
+  {%- endfor %}
+</section>

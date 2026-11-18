@@ -1,0 +1,80 @@
+{%- assign p = site.data.profile -%}
+{%- if page.title -%}{%- assign full_title = page.title | append: " · " | append: site.title -%}{%- else -%}{%- assign full_title = site.title -%}{%- endif -%}
+{%- assign desc = page.excerpt | default: page.description | default: site.description | strip_html | strip_newlines | truncate: 150 -%}
+{%- assign og_image = page.cover | default: p.photo -%}
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ full_title }}</title>
+  <meta name="description" content="{{ desc }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ full_title }}">
+  <meta property="og:description" content="{{ desc }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ og_image | absolute_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="{{ '/assets/images/icon.png' | relative_url }}">
+  <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/icon.png' | relative_url }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要內容</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <span class="brand-name">{{ p.name_zh }}</span>
+        <span class="brand-en">{{ p.name_en }}</span>
+      </a>
+      <nav class="nav" aria-label="主選單">
+        {%- assign nav = "首頁|/,著作|/publications/,經歷|/experience/" | split: "," -%}
+        {%- for item in nav -%}
+          {%- assign parts = item | split: "|" -%}
+          {%- assign href = parts[1] -%}
+          {%- assign active = false -%}
+          {%- if href == "/" and page.url == "/" -%}{%- assign active = true -%}
+          {%- elsif href != "/" and page.url contains href -%}{%- assign active = true -%}
+          {%- endif %}
+        <a href="{{ href | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ parts[0] }}</a>
+        {%- endfor %}
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <p class="footer-name">{{ p.name_zh }} · {{ p.name_en }}</p>
+        <p>{{ p.affiliation }}</p>
+      </div>
+      <div class="footer-contact">
+        {% if p.email %}<a href="mailto:{{ p.email }}">{{ p.email }}</a>{% endif %}
+        {% if p.office %}<span>{{ p.office }}</span>{% endif %}
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="lightbox" class="lightbox" aria-label="圖片預覽">
+    <form method="dialog"><button class="lightbox-close" aria-label="關閉">×</button></form>
+    <img alt="">
+    <p class="lightbox-caption"></p>
+  </dialog>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</body>
+</html>

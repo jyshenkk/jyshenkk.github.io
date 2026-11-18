@@ -1,0 +1,67 @@
+{%- comment -%} 一筆著作。用法：{% include publication.html pub=xxx %} {%- endcomment -%}
+{%- assign pub = include.pub -%}
+{%- assign p = site.data.profile -%}
+{%- assign me_en = '<strong class="me">' | append: p.name_en | append: '</strong>' -%}
+{%- assign me_zh = '<strong class="me">' | append: p.name_zh | append: '</strong>' -%}
+{%- assign first_word = pub.title | split: " " | first | downcase | remove: ":" | remove: "," -%}
+{%- capture bib_key -%}{{ p.name_en | split: "-" | last | split: " " | last | downcase }}{{ pub.year }}{{ first_word }}{%- endcapture -%}
+
+{%- capture target_url -%}
+  {%- if pub.doi != "" and pub.doi -%}
+    {%- if pub.doi contains "http" -%}{{ pub.doi }}{%- else -%}https://doi.org/{{ pub.doi }}{%- endif -%}
+  {%- elsif pub.link != "" and pub.link -%}
+    {{ pub.link | relative_url }}
+  {%- endif -%}
+{%- endcapture -%}
+{%- assign target_url = target_url | strip -%}
+
+<article class="pub">
+  <h3 class="pub-title">
+    {%- if target_url != "" -%}
+      <a href="{{ target_url }}" {% if target_url contains "http" %}target="_blank" rel="noopener"{% endif %}>{{ pub.title }}</a>
+    {%- else -%}
+      {{ pub.title }}
+    {%- endif -%}
+  </h3>
+  <p class="pub-authors">{{ pub.authors | replace: p.name_en, me_en | replace: p.name_zh, me_zh }}</p>
+  <p class="pub-venue">{% if pub.venue != "" and pub.venue %}<em>{{ pub.venue }}</em>, {% endif %}{{ pub.year }}{% if pub.note != "" and pub.note %} <span class="tag">{{ pub.note }}</span>{% endif %}</p>
+  <div class="pub-actions">
+    {%- if pub.doi != "" and pub.doi %}
+      <a class="chip" href="{% if pub.doi contains 'http' %}{{ pub.doi }}{% else %}https://doi.org/{{ pub.doi }}{% endif %}" target="_blank" rel="noopener">DOI ↗</a>
+    {%- endif %}
+    {%- if pub.pdf != "" and pub.pdf %}<a class="chip" href="{{ pub.pdf | relative_url }}" target="_blank">PDF</a>{% endif %}
+    {%- if pub.link != "" and pub.link and pub.doi == "" %}
+      {%- assign link_lbl = pub.link_label | default: "相關連結" -%}
+      {%- if pub.link contains ".jpg" or pub.link contains ".png" or pub.link contains ".jpeg" -%}
+        <button type="button" class="chip" data-zoom="{{ pub.link | relative_url }}" data-caption="{{ pub.title | escape }} — {{ link_lbl }}">{{ link_lbl }}</button>
+      {%- else -%}
+        <a class="chip" href="{{ pub.link | relative_url }}" {% if pub.link contains "http" %}target="_blank" rel="noopener"{% endif %}>{{ link_lbl }}</a>
+      {%- endif -%}
+    {%- endif %}
+    {%- if pub.image != "" and pub.image %}<button type="button" class="chip" data-zoom="{{ pub.image | relative_url }}" data-caption="{{ pub.title | escape }}">圖片</button>{% endif %}
+    {%- if pub.type == "期刊論文" %}
+    <button type="button" class="chip" data-copy="bib-{{ bib_key }}">複製 BibTeX</button>
+<template id="bib-{{ bib_key }}">@article{% raw %}{{% endraw %}{{ bib_key }},
+  title   = {% raw %}{{% endraw %}{{ pub.title | replace: "CO₂", "CO$_2$" }}},
+  author  = {% raw %}{{% endraw %}{{ pub.authors | replace: ", et al.", " and others" | replace: ", ", " and " }}},{% if pub.venue != "" and pub.venue %}
+  journal = {% raw %}{{% endraw %}{{ pub.venue }}},{% endif %}
+  year    = {% raw %}{{% endraw %}{{ pub.year }}}{% if pub.doi != "" and pub.doi %},
+  doi     = {% raw %}{{% endraw %}{{ pub.doi }}}{% endif %}
+}</template>
+    {%- endif %}
+    {%- if pub.abstract != "" and pub.abstract %}
+    <details class="pub-abstract">
+      <summary>摘要</summary>
+      <div class="pub-abstract-body">
+        {%- if pub.graphic_abstract != "" and pub.graphic_abstract %}
+        <figure class="pub-graphic-abstract">
+          <img src="{{ pub.graphic_abstract | relative_url }}" alt="Graphical Abstract — {{ pub.title | escape }}" loading="lazy" data-zoom="{{ pub.graphic_abstract | relative_url }}" data-caption="Graphical Abstract — {{ pub.title | escape }}">
+          <figcaption>Graphical Abstract（點擊圖片可放大檢視）</figcaption>
+        </figure>
+        {%- endif %}
+        <p>{{ pub.abstract }}</p>
+      </div>
+    </details>
+    {%- endif %}
+  </div>
+</article>

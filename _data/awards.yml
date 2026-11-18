@@ -1,0 +1,50 @@
+# 榮譽與活動（網站會自動依日期排序）
+# kind 可填：獲獎、演講、研習、活動
+
+- date: 2026-07-15
+  kind: 獲獎
+  title: Poster Award
+  org: Hokkaido University, Japan
+  description: 以海報發表深共熔凝膠於二氧化碳捕獲之研究
+  image: /assets/images/poster-award.png
+  link: ""
+
+- date: 2026-04-21
+  kind: 獲獎
+  title: 碩士論文競賽 口頭簡報組優勝
+  org: 國立中央大學 化學工程與材料工程學系
+  description: 114 學年度碩士論文競賽研習會
+  image: /assets/images/award-thesis-contest.png
+  link: ""
+
+- date: 2025-11-15
+  kind: 活動
+  title: Biomedical & Biomaterials Symposium
+  org: Waseda University, Japan
+  description: 受邀專題演講 (Invited Talk)
+  image: ""
+  link: ""
+
+- date: 2025-06-30
+  kind: 研習
+  title: 先進技術課程結業證明
+  org: 台灣應用材料 (Applied Materials Taiwan)
+  description: 完成先進製程與材料技術研習課程
+  image: /assets/images/AM.png
+  link: ""
+
+- date: 2025-05-09
+  kind: 活動
+  title: 第 4 屆大專院校綠色化學創意競賽
+  org: 教育部、環境部
+  description: 以綠色化學原則設計高分子凝膠合成，參與全國競賽
+  image: /assets/images/cert-green-chemistry.png
+  link: ""
+
+- date: 2023-08-31
+  kind: 研習
+  title: 機台基礎訓練證明
+  org: 台積電新人訓練中心 (TSMC NTC)
+  description: 完成半導體製程設備基礎操作與訓練
+  image: /assets/images/TSMC.png
+  link: ""

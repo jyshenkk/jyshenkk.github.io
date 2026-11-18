@@ -1,0 +1,57 @@
+---
+layout: default
+title: 經歷
+permalink: /experience/
+description: 沈玨妤 Jyue-Yu Shen 的學歷、榮譽與學術活動。
+---
+{%- assign p = site.data.profile -%}
+<header class="page-head">
+  <h1>經歷</h1>
+  <p class="lede">Education &amp; Honors</p>
+</header>
+
+<section class="block" id="education">
+  <h2 class="section-title">學歷 <span class="en">Education</span></h2>
+  <ul class="timeline">
+    {%- for e in p.education %}
+    <li>
+      <span class="when">{{ e.years }}</span>
+      <div><strong>{{ e.degree }}</strong>　{{ e.school }}</div>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="block" id="honors">
+  <h2 class="section-title">榮譽、活動與專業研習 <span class="en">Honors, Activities &amp; Certifications</span></h2>
+  {%- assign awards = site.data.awards | sort: "date" | reverse %}
+  <ul class="honors">
+    {%- for a in awards %}
+    {%- case a.kind -%}
+      {%- when "獲獎" -%}{%- assign kind_cls = "kind-award" -%}
+      {%- when "演講" -%}{%- assign kind_cls = "kind-talk" -%}
+      {%- when "研習" -%}{%- assign kind_cls = "kind-training" -%}
+      {%- when "活動" -%}{%- assign kind_cls = "kind-activity" -%}
+      {%- else -%}{%- assign kind_cls = "kind-activity" -%}
+    {%- endcase -%}
+    <li>
+      <time datetime="{{ a.date }}">{{ a.date | date: "%Y.%m" }}</time>
+      <div>
+        <div class="honor-title">
+          <span class="kind {{ kind_cls }}">{{ a.kind }}</span>
+          {{ a.title }}
+        </div>
+        <p class="honor-desc">{{ a.org }}{% if a.description != "" %} — {{ a.description }}{% endif %}</p>
+        {%- if a.link != "" and a.link %}
+        <p class="honor-link"><a href="{{ a.link | relative_url }}">閱讀活動紀實 →</a></p>
+        {%- endif %}
+      </div>
+      {%- if a.image != "" and a.image %}
+      <button type="button" class="thumb" data-zoom="{{ a.image | relative_url }}" data-caption="{{ a.title }} — {{ a.org }}">
+        <img src="{{ a.image | relative_url }}" alt="{{ a.title }}" loading="lazy">
+      </button>
+      {%- endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+</section>

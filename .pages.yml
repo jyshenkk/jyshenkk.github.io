@@ -1,0 +1,172 @@
+# Pages CMS 設定檔（https://app.pagescms.org）
+# 讓網站可以用表單編輯，不用碰程式碼。一般不需要修改這個檔案。
+
+media:
+  input: assets/images
+  output: /assets/images
+
+content:
+  - name: posts
+    label: 部落格文章
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{hour}{minute}{second}.md"
+    view:
+      fields: [title, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: 標題
+        type: string
+        required: true
+      - name: date
+        label: 日期
+        type: date
+        required: true
+      - name: cover
+        label: 封面圖片（可不填）
+        type: image
+      - name: excerpt
+        label: 一句話摘要（顯示在文章列表）
+        type: text
+      - name: body
+        label: 內文
+        type: rich-text
+
+  - name: news
+    label: 近況
+    type: file
+    path: _data/news.yml
+    format: yaml
+    list: true
+    fields:
+      - name: date
+        label: 日期
+        type: date
+        required: true
+      - name: text
+        label: 內容（一句話）
+        type: text
+        required: true
+      - name: link
+        label: 連結（可不填）
+        type: string
+
+  - name: publications
+    label: 著作
+    type: file
+    path: _data/publications.yml
+    format: yaml
+    list: true
+    fields:
+      - name: title
+        label: 標題
+        type: string
+        required: true
+      - name: authors
+        label: 作者（用逗號分隔，例：Jyue-Yu Shen, Po-Jung Huang）
+        type: string
+        required: true
+      - name: type
+        label: 類型
+        type: select
+        options:
+          values: [期刊論文, 研討會發表]
+      - name: venue
+        label: 期刊或會議名稱
+        type: string
+      - name: year
+        label: 年份
+        type: number
+      - name: doi
+        label: DOI（只填 10.xxxx/xxxx 這段）
+        type: string
+      - name: pdf
+        label: PDF（上傳檔案）
+        type: file
+      - name: link
+        label: 其他連結
+        type: string
+      - name: image
+        label: 圖片（海報、獎狀等）
+        type: image
+      - name: note
+        label: 備註標籤（例：Poster · Poster Award）
+        type: string
+      - name: featured
+        label: 顯示在首頁「代表著作」
+        type: boolean
+      - name: abstract
+        label: 摘要
+        type: text
+
+  - name: awards
+    label: 榮譽與活動
+    type: file
+    path: _data/awards.yml
+    format: yaml
+    list: true
+    fields:
+      - name: date
+        label: 日期
+        type: date
+        required: true
+      - name: kind
+        label: 類別
+        type: select
+        options:
+          values: [獲獎, 活動]
+      - name: title
+        label: 名稱
+        type: string
+        required: true
+      - name: org
+        label: 主辦單位 / 地點
+        type: string
+      - name: description
+        label: 說明
+        type: text
+      - name: image
+        label: 圖片（獎狀、照片）
+        type: image
+      - name: link
+        label: 連結（可不填）
+        type: string
+
+  - name: profile
+    label: 個人資料
+    type: file
+    path: _data/profile.yml
+    format: yaml
+    fields:
+      - { name: name_zh, label: 中文姓名, type: string }
+      - { name: name_en, label: 英文姓名, type: string }
+      - { name: position, label: 身分（中文）, type: string }
+      - { name: position_en, label: 身分（英文）, type: string }
+      - { name: affiliation, label: 系所（中文）, type: string }
+      - { name: affiliation_en, label: 系所（英文）, type: string }
+      - { name: advisor, label: 指導教授, type: string }
+      - { name: photo, label: 大頭照, type: image }
+      - { name: bio, label: 自我介紹, type: text }
+      - { name: interests, label: 研究興趣, type: string, list: true }
+      - { name: email, label: Email, type: string }
+      - { name: office, label: 研究室, type: string }
+      - { name: address, label: 地址, type: string }
+      - { name: phone, label: 電話, type: string }
+      - { name: google_scholar, label: Google Scholar 網址, type: string }
+      - { name: orcid, label: ORCID 網址, type: string }
+      - { name: researchgate, label: ResearchGate 網址, type: string }
+      - { name: linkedin, label: LinkedIn 網址, type: string }
+      - { name: cv_pdf, label: 履歷 PDF, type: file }
+      - name: education
+        label: 學歷
+        type: object
+        list: true
+        fields:
+          - { name: degree, label: 學位, type: string }
+          - { name: school, label: 學校系所, type: string }
+          - { name: years, label: 期間, type: string }

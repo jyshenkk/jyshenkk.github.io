@@ -1,0 +1,24 @@
+---
+layout: default
+title: 著作
+permalink: /publications/
+description: 沈玨妤 Jyue-Yu Shen 的期刊論文與研討會發表。
+---
+<header class="page-head">
+  <h1>著作</h1>
+  <p class="lede">Publications &amp; Presentations</p>
+</header>
+
+{%- assign groups = "期刊論文|Journal Articles,研討會發表|Conference Presentations" | split: "," %}
+{%- for g in groups %}
+  {%- assign parts = g | split: "|" %}
+  {%- assign items = site.data.publications | where: "type", parts[0] %}
+  {%- if items.size > 0 %}
+<section class="block">
+  <h2 class="section-title">{{ parts[0] }} <span class="en">{{ parts[1] }}</span></h2>
+  {%- for pub in items %}
+    {% include publication.html pub=pub %}
+  {%- endfor %}
+</section>
+  {%- endif %}
+{%- endfor %}

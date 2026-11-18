@@ -1,0 +1,73 @@
+# 著作與發表（新的放最上面）
+# type 只能填：期刊論文 或 研討會發表
+# featured: true 的會顯示在首頁「代表著作」
+# 作者欄裡的自己的名字（Jyue-Yu Shen / 沈玨妤）會自動變粗體
+# BibTeX 會自動產生，不必自己寫
+
+- title: Unlocking Ultra-High CO₂ Capture Capacity in PMAm-Based Deep Eutectic Gel (DEG) via In Situ Photopolymerization
+  authors: Jyue-Yu Shen, Po-Jung Huang
+  type: 期刊論文
+  venue: "Journal of Environmental Chemical Engineering"
+  year: 2026
+  doi: "10.1016/j.jece.2026.125915"
+  pdf: ""
+  link: "https://doi.org/10.1016/j.jece.2026.125915"
+  image: ""
+  graphic_abstract: /assets/images/graphic-abstract.png
+  note: ""
+  featured: true
+  abstract: >-
+    Liquid amine absorbents for CO₂ capture are limited by volatility, corrosion, and viscosity-induced mass transfer resistance. Here, we confine a ChCl/MEA deep eutectic solvent within a polymethacrylamide network through rapid in situ UV photopolymerization, yielding a solid-state deep eutectic gel (DEG) that preserves its amine reactivity and remains structurally intact after CO₂ uptake. The DEG reaches 0.469 g/g at 25 °C and 1.072 g/g at 4 °C, surpassing previously reported amine-functionalized hydrogels.
+
+- title: "Green Deep Eutectic Gels (DEGs): Novel Poly(methacrylamide) Hydrogels for CO₂ Capture"
+  authors: Jyue-Yu Shen, Po-Jung Huang
+  type: 研討會發表
+  venue: Hokkaido University Academic Exchange Symposium, Sapporo, Japan
+  year: 2026
+  doi: ""
+  pdf: ""
+  link: /assets/images/hokkaido-exchange.jpg
+  link_label: 海報合影
+  image: ""
+  note: Poster
+  featured: false
+  abstract: ""
+
+- title: "Green Deep Eutectic Gels (DEGs): Novel Poly(methacrylamide) Hydrogels for CO₂ Capture"
+  authors: Jyue-Yu Shen, Po-Jung Huang
+  type: 研討會發表
+  venue: Annual Meeting of the Polymer Society of Taipei (PST)
+  year: 2026
+  doi: ""
+  pdf: ""
+  link: ""
+  image: ""
+  note: Poster
+  featured: false
+  abstract: ""
+
+- title: "Green Deep Eutectic Gels (DEGs): Novel Poly(methacrylamide) Hydrogels for CO₂ Capture"
+  authors: 沈玨妤
+  type: 研討會發表
+  venue: 國立中央大學化學工程與材料工程學系 114 學年度碩士論文競賽研習會
+  year: 2026
+  doi: ""
+  pdf: ""
+  link: ""
+  image: ""
+  note: Oral
+  featured: false
+  abstract: ""
+
+- title: "Green Deep Eutectic Gels (DEGs): Novel Poly(methacrylamide) Hydrogels for CO₂ Capture"
+  authors: Jyue-Yu Shen, Po-Jung Huang
+  type: 研討會發表
+  venue: Annual Meeting of the Taiwan Institute of Chemical Engineers (TwIChE)
+  year: 2025
+  doi: ""
+  pdf: ""
+  link: ""
+  image: ""
+  note: Oral
+  featured: false
+  abstract: ""

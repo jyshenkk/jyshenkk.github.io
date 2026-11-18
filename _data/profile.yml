@@ -1,0 +1,42 @@
+# 個人資料：首頁與頁尾都會讀這裡
+# 空白（""）的欄位網站上就不會顯示
+
+name_zh: 沈玨妤
+name_en: Jyue-Yu Shen
+position: 博士班一年級
+position_en: Ph.D. Student
+affiliation: 國立中央大學 化學工程與材料工程學系
+affiliation_en: Department of Chemical and Materials Engineering, National Central University
+advisor: Prof. Po-Jung Huang
+advisor_email: pjhuang@cc.ncu.edu.tw
+photo: /assets/images/profile-portrait.jpg
+
+bio: ""
+
+interests:
+  - Soft Materials
+  - CO₂ Capture
+  - Deep Eutectic Gels
+  - Photonic Crystals
+  - Waterborne Coatings
+
+email: jyshenkk@gmail.com
+office: 功能高分子複合材料實驗室
+address: 320317 桃園市中壢區中大路 300 號
+phone: +886-3-422-7151 ext. 27257
+lab_url: https://advanced-multifunctional-material-lab.webnode.page/
+
+# 學術連結：有帳號再填網址，沒填就不顯示
+google_scholar: "https://scholar.google.com/citations?user=Jt7QzcsAAAAJ&hl=zh-TW&oi=ao"
+orcid: ""
+researchgate: ""
+linkedin: ""
+cv_pdf: ""
+
+education:
+  - degree: 博士班
+    school: 國立中央大學 化學工程與材料工程學系
+    years: 2026 – 至今
+  - degree: 碩士
+    school: 國立中央大學 化學工程與材料工程學系
+    years: – 2026
