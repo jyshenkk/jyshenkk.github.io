@@ -29,7 +29,7 @@
   kind: 活動
   title: 碩士學位論文口試通過
   org: 國立中央大學 化學工程與材料工程學系
-  description: 完成論文口試防衛，順利通過學位審查
+  description: 完成論文口試，順利通過學位審查
   image: /assets/images/master-oral-defense.jpg
   link: ""
 
@@ -46,7 +46,7 @@
   title: Biomedical & Biomaterials Symposium
   org: Waseda University, Japan
   description: 受邀專題演講 (Invited Talk)
-  image: ""
+  image: /assets/images/invited-talk.jpg
   link: ""
 
 - date: 2025-06-30
