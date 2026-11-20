@@ -43,7 +43,7 @@
         <span class="brand-en">{{ p.name_en }}</span>
       </a>
       <nav class="nav" aria-label="主選單">
-        {%- assign nav = "首頁|/,著作|/publications/,經歷|/experience/" | split: "," -%}
+        {%- assign nav = "Home|/,Publications|/publications/,Experience|/experience/" | split: "," -%}
         {%- for item in nav -%}
           {%- assign parts = item | split: "|" -%}
           {%- assign href = parts[1] -%}
