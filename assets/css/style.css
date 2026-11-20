@@ -146,14 +146,15 @@ main.wrap { flex: 1; padding-top: 56px; padding-bottom: 80px; }
 
 .interests { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .interests li {
-  background: var(--surface);
-  border: none;
+  background: #ffffff;
+  border: 1px solid var(--line);
   padding: 6px 14px;
   border-radius: 6px;
   font-size: 0.92rem;
   color: var(--ink);
   line-height: 1.5;
   font-family: var(--serif-en), var(--sans);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 /* ── News / post list ─────────────────── */
@@ -193,8 +194,9 @@ main.wrap { flex: 1; padding-top: 56px; padding-bottom: 80px; }
 .pub-abstract summary::after { content: " ▾"; }
 .pub-abstract[open] summary::after { content: " ▴"; }
 .pub-abstract-body {
-  margin-top: 10px; padding: 16px 20px; background: var(--surface); border-radius: 8px;
+  margin-top: 10px; padding: 16px 20px; background: #ffffff; border-radius: 8px;
   border: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 .pub-abstract-body p, .pub-abstract p {
   font-family: var(--serif-en); font-size: 0.95rem; line-height: 1.75; color: var(--ink);
