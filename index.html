@@ -25,14 +25,14 @@ layout: default
 </section>
 
 <section class="block">
-  <h2 class="section-title">研究領域</h2>
+  <h2 class="section-title">研究興趣 <span class="en">Research Interests</span></h2>
   <ul class="interests">
     {% for it in p.interests %}<li>{{ it }}</li>{% endfor %}
   </ul>
 </section>
 
 <section class="block">
-  <h2 class="section-title">近況</h2>
+  <h2 class="section-title">近況 <span class="en">News</span></h2>
   {%- assign news = site.data.news | sort: "date" | reverse %}
   <ul class="news">
     {%- for n in news limit: 6 %}
@@ -46,7 +46,7 @@ layout: default
 
 <section class="block">
   <div class="section-head">
-    <h2 class="section-title">代表著作</h2>
+    <h2 class="section-title">代表著作 <span class="en">Featured Publications</span></h2>
     <a class="see-all" href="{{ '/publications/' | relative_url }}">全部著作 →</a>
   </div>
   {%- assign pubs = site.data.publications | where: "featured", true %}
