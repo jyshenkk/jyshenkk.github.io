@@ -26,21 +26,30 @@
   year: 2026
   doi: ""
   pdf: ""
-  link: /assets/images/hokkaido-exchange.jpg
-  link_label: 海報合影
+  link: ""
+  photos:
+    - label: 海報合影
+      src: /assets/images/hokkaido-exchange.jpg
+    - label: 頒獎留影
+      src: /assets/images/hokkaido-award-satoh.jpg
+    - label: 交流大合照
+      src: /assets/images/hokkaido-group.jpg
   image: ""
   note: Poster
   featured: false
   abstract: ""
 
 - title: "Upcycling Polyethylene Terephthalate Plastic Waste into Amine Infused Hydrogels (AIHs) for Carbon Dioxide Capture"
-  authors: Rui-Heng Chen, Jyue-Yu Shen, Po-Jung Huang
+  authors: Ruei-Heng Chen, Jyue-Yu Shen, Po-Jung Huang
   type: 研討會發表
   venue: Hokkaido University Academic Exchange Symposium, Sapporo, Japan
   year: 2026
   doi: ""
   pdf: ""
   link: ""
+  photos:
+    - label: 交流大合照
+      src: /assets/images/hokkaido-group.jpg
   image: ""
   note: Poster
   featured: false
@@ -54,6 +63,9 @@
   doi: ""
   pdf: ""
   link: ""
+  photos:
+    - label: 交流大合照
+      src: /assets/images/hokkaido-group.jpg
   image: ""
   note: Poster
   featured: false

@@ -9,8 +9,8 @@
 {%- capture target_url -%}
   {%- if pub.doi != "" and pub.doi -%}
     {%- if pub.doi contains "http" -%}{{ pub.doi }}{%- else -%}https://doi.org/{{ pub.doi }}{%- endif -%}
-  {%- elsif pub.link != "" and pub.link -%}
-    {{ pub.link | relative_url }}
+  {%- elsif pub.link != "" and pub.link and pub.link contains "http" -%}
+    {{ pub.link }}
   {%- endif -%}
 {%- endcapture -%}
 {%- assign target_url = target_url | strip -%}
@@ -30,7 +30,11 @@
       <a class="chip" href="{% if pub.doi contains 'http' %}{{ pub.doi }}{% else %}https://doi.org/{{ pub.doi }}{% endif %}" target="_blank" rel="noopener">DOI ↗</a>
     {%- endif %}
     {%- if pub.pdf != "" and pub.pdf %}<a class="chip" href="{{ pub.pdf | relative_url }}" target="_blank">PDF</a>{% endif %}
-    {%- if pub.link != "" and pub.link and pub.doi == "" %}
+    {%- if pub.photos %}
+      {%- for ph in pub.photos %}
+        <button type="button" class="chip" data-zoom="{{ ph.src | relative_url }}" data-caption="{{ pub.title | escape }} — {{ ph.label }}">{{ ph.label }}</button>
+      {%- endfor %}
+    {%- elsif pub.link != "" and pub.link and pub.doi == "" %}
       {%- assign link_lbl = pub.link_label | default: "相關連結" -%}
       {%- if pub.link contains ".jpg" or pub.link contains ".png" or pub.link contains ".jpeg" -%}
         <button type="button" class="chip" data-zoom="{{ pub.link | relative_url }}" data-caption="{{ pub.title | escape }} — {{ link_lbl }}">{{ link_lbl }}</button>
