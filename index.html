@@ -4,7 +4,7 @@ layout: default
 {%- assign p = site.data.profile -%}
 <section class="hero">
   <figure class="hero-photo">
-    <img src="{{ p.photo | relative_url }}" alt="{{ p.name_zh }}的照片" width="560" height="700" data-zoom="{{ p.photo | relative_url }}" data-caption="{{ p.name_zh }} {{ p.name_en }}">
+    <img src="{{ p.photo | relative_url }}?v={{ site.time | date: '%s' }}" alt="{{ p.name_zh }}的照片" width="560" height="700" data-zoom="{{ p.photo | relative_url }}?v={{ site.time | date: '%s' }}" data-caption="{{ p.name_zh }} {{ p.name_en }}">
   </figure>
   <div class="hero-text">
     <p class="eyebrow">{{ p.position }} · {{ p.position_en }}</p>
